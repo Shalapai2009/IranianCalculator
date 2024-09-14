@@ -30,6 +30,7 @@ public class CalculatorTest {
     void div() {
         float div = calculator.div(50,10);
         Assertions.assertEquals(5,div);
+        System.out.println(1);
     }
 
 }
