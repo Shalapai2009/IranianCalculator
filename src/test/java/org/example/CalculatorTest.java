@@ -4,33 +4,37 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class CalculatorTest {
-    private Calculator calculator;
-    @BeforeEach
-    void setUp(){
-    calculator = new Calculator();
-    }
+import static junit.framework.Assert.assertTrue;
 
+public class CalculatorTest implements Calculator {
     @Test
     void sum() {
-    float sum = calculator.sum(5,10);
-        Assertions.assertEquals(15,sum);
+        Assertions.assertEquals(15, Calculator.sum(5,10));
     }
     @Test
     void dif() {
-        float dif = calculator.dif(10,5);
-        Assertions.assertEquals(5,dif);
+        Assertions.assertEquals(5,Calculator.dif(10,5));
     }
     @Test
     void prod() {
-        float prod = calculator.prod(5,10);
-        Assertions.assertEquals(50,prod);
+        Assertions.assertEquals(50, Calculator.prod(5,10));
     }
     @Test
     void div() {
-        float div = calculator.div(50,10);
-        Assertions.assertEquals(5,div);
-        System.out.println(1);
+
+        Assertions.assertEquals(5,Calculator.div(50,10));
+    }
+    @Test
+    void divByZero() {
+        boolean exceptionThrown = false;
+
+        try {
+            Assertions.assertEquals(5,Calculator.div(50,0));
+        }
+        catch (ArithmeticException e) {
+            exceptionThrown = true;
+        }
+        assertTrue(exceptionThrown);
     }
 
 }
