@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static junit.framework.Assert.assertTrue;
 
-public class CalculatorTest implements Calculator {
+public class CalculatorTest {
     @Test
     void sum() {
         Assertions.assertEquals(15, Calculator.sum(5,10));
